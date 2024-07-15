@@ -52,12 +52,48 @@ Make sure you have the following installed:
 2. Install dependencies for both client and server:
 
 ```sh
-# Install server dependencies
-cd server
-npm install
+   # Install server dependencies
+   cd server
+   npm install
 
-# Install client dependencies
-cd ../client
-npm install
-Set up environmen
+   # Install client dependencies
+   cd ../client
+   npm install
+   Set up environmen
+```
+
+3. Set up environment variables:
+   Create a .env file in the server directory and add the following:
+   ```sh
+   MONGO_URI=your_mongodb_connection_string
+   JWT_SECRET=your_jwt_secret
+   EMAIL_USER=your_email_address
+   EMAIL_PASS=your_email_password
+   ```
+4. Run the application:
+   ```sh
+   # Run server
+   cd server
+   npm start
+
+   # Run client
+   cd ../client
+   npm start
+```
+The server will start on http://localhost:5000 and the client on http://localhost:3000.
+
+## Usage
+
+- **Sign Up / Log In**: Create an account or log in to access your personal budget dashboard.
+- **Add Transactions**: Use the "Add New" button to input new income or expense entries.
+- **Manage Transactions**: Edit or delete transactions directly from the list.
+- **Filter Transactions**: Use the dropdown menu to filter transactions by last 1 week, last 1 month, or last 1 year.
+- **View by Type**: Toggle between viewing only incomes or only expenses.
+- **Visualize Spending**: Switch to the graph view to see a visual representation of your spending.
+- **Create Budget**: Click on "Create Budget" to set up a new budget.
+- **Share Reports**: Use the "Share Report" button to email a summary of your transactions.
+
+## Contributing
+
+Contributions are welcome! Please fork the repository and submit a pull request for any changes.
 

@@ -79,7 +79,7 @@ Make sure you have the following installed:
    # Run client
    cd ../client
    npm start
-```
+   ```
 The server will start on http://localhost:5000 and the client on http://localhost:3000.
 
 ## Usage

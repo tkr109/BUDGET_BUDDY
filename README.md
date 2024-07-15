@@ -1,5 +1,6 @@
 # BudgetBuddy
 
+![image](https://github.com/user-attachments/assets/b0013afa-b6c4-41f1-8560-61215bf3b722)
 
 
 ## Overview
@@ -51,7 +52,7 @@ Make sure you have the following installed:
 
 2. Install dependencies for both client and server:
 
-```sh
+   ```sh
    # Install server dependencies
    cd server
    npm install
@@ -60,7 +61,7 @@ Make sure you have the following installed:
    cd ../client
    npm install
    Set up environmen
-```
+   ```
 
 3. Set up environment variables:
    Create a .env file in the server directory and add the following:

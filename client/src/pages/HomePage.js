@@ -23,6 +23,7 @@ import {
   DeleteOutlined,
 } from "@ant-design/icons";
 import Analytics from "../components/Analytics";
+import { BASE_URL } from "../components/helper";
 const { RangePicker } = DatePicker;
 
 const HomePage = () => {
@@ -101,7 +102,7 @@ const HomePage = () => {
   const handleDelete = async (record) => {
     try {
       setLoading(true);
-      await axios.post('/api/v1/transaction/del-transaction', { transactionId: record._id });
+      await axios.post(`${BASE_URL}/api/v1/transaction/del-transaction`, { transactionId: record._id });
       message.success("Transaction Deleted");
       setLoading(false);
       getAllTransaction(); 
@@ -115,7 +116,7 @@ const HomePage = () => {
     try {
       const user = JSON.parse(localStorage.getItem("user"));
       setLoading(true);
-      const res = await axios.post("api/v1/transaction/get-transaction", {
+      const res = await axios.post(`${BASE_URL}/api/v1/transaction/get-transaction`, {
         userid: user._id,
         frequency,
         type,
@@ -158,7 +159,7 @@ const HomePage = () => {
     try {
       setLoading(true);
       if (editable) {
-        await axios.post("api/v1/transaction/edit-transaction", {
+        await axios.post(`${BASE_URL}/api/v1/transaction/edit-transaction`, {
           payload: {
             ...value,
             userId: user._id,
@@ -167,7 +168,7 @@ const HomePage = () => {
         });
         message.success("Transaction Updated Successfully");
       } else {
-        await axios.post("api/v1/transaction/add-transaction", {
+        await axios.post(`${BASE_URL}/api/v1/transaction/add-transaction`, {
           ...value,
           userid: user._id,
         });
@@ -189,7 +190,7 @@ const HomePage = () => {
 
     try {
       setLoading(true);
-      await axios.post('/api/v1/email/send-summary', {
+      await axios.post(`${BASE_URL}/api/v1/email/send-summary`, {
         userId: user._id,
         email: values.email,
         startDate: startDate.toISOString(),
@@ -253,7 +254,7 @@ const HomePage = () => {
     const user = JSON.parse(localStorage.getItem("user"));
     try {
       setLoading(true);
-      await axios.post('/api/v1/users/update-budget', {
+      await axios.post(`${BASE_URL}/api/v1/users/update-budget`, {
         userId: user._id,
         budgets,
       });

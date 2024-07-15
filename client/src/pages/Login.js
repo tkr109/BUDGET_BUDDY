@@ -4,6 +4,7 @@ import "./Login.css";
 import axios from "axios";
 import { useEffect, useState } from "react";
 import Spinner from "../components/Spinner";
+import { BASE_URL } from "../components/helper";
 
 const Login = () => {
   const navigate = useNavigate();
@@ -12,7 +13,7 @@ const Login = () => {
   const submitHandler = async (values) => {
     try {
       setLoading(true);
-      const { data } = await axios.post("api/v1/users/login", values);
+      const { data } = await axios.post(`${BASE_URL}api/v1/users/login`, values);
       setLoading(false);
       message.success("Login Success");
       localStorage.setItem(

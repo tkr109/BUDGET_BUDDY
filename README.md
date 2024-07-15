@@ -1,5 +1,7 @@
 # BudgetBuddy
 
+Live : https://budget-buddy-dev.netlify.app/
+
 ![image](https://github.com/user-attachments/assets/b0013afa-b6c4-41f1-8560-61215bf3b722)
 
 

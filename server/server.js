@@ -6,28 +6,18 @@ const emailRoutes = require('./routes/email');
 
 const app = express();
 
-
-const allowedOrigins = ['https://your-netlify-app.netlify.app'];
+app.use(express.json());
 
 
 const corsOptions = {
-  origin: function (origin, callback) {
-    if (!origin || allowedOrigins.indexOf(origin) !== -1) {
-      callback(null, true);
-    } else {
-      callback(new Error('Not allowed by CORS'));
-    }
-  },
+  origin: '*', 
   methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
   allowedHeaders: ['Content-Type', 'Authorization'],
-  optionsSuccessStatus: 200 
+  preflightContinue: false,
+  optionsSuccessStatus: 204
 };
 
-
 app.use(cors(corsOptions));
-
-app.use(express.json());
-
 
 connectDB();
 
@@ -35,7 +25,6 @@ app.use('/api/v1/users', require('./routes/userRoutes'));
 app.use('/api/v1/transaction', require('./routes/transactionRoutes'));
 app.use('/api/v1/email', emailRoutes);
 
-
 app.listen(process.env.PORT, () => {
-  console.log(`Server Started on Port ${process.env.PORT}`);
+  console.log('Server Started');
 });

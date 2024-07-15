@@ -48,4 +48,13 @@ Make sure you have the following installed:
    git clone https://github.com/your-username/BudgetBuddy.git
    cd BudgetBuddy
 
-2. Install dependencies for both client and server:
+2. **Install dependencies for both client and server:**
+   ```sh
+   # Install server dependencies
+cd server
+npm install
+
+# Install client dependencies
+cd ../client
+npm install
+

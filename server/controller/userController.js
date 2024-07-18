@@ -1,12 +1,18 @@
+const bcrypt = require('bcrypt');
 const userModel = require("../models/userModel");
+
 
 // login callback
 const loginController = async (req, res) => {
   try {
     const { email, password } = req.body;
-    const user = await userModel.findOne({ email, password });
+    const user = await userModel.findOne({ email });
     if (!user) {
       return res.status(404).send("User Not Found");
+    }
+    const isMatch = await bcrypt.compare(password, user.password);
+    if (!isMatch) {
+      return res.status(400).json({ success: false, message: "Invalid credentials" });
     }
     res.status(200).json({
       success: true,
@@ -20,10 +26,12 @@ const loginController = async (req, res) => {
   }
 };
 
-//Register Callback
+// Register callback
 const registerController = async (req, res) => {
   try {
-    const newUser = new userModel(req.body);
+    const { password, ...rest } = req.body;
+    const hashedPassword = await bcrypt.hash(password, 10);
+    const newUser = new userModel({ ...rest, password: hashedPassword });
     await newUser.save();
     res.status(201).json({
       success: true,
@@ -36,9 +44,8 @@ const registerController = async (req, res) => {
     });
   }
 };
-
-
-const updateBudget =async (req, res) => {
+// Update Budget
+const updateBudget = async (req, res) => {
   const { userId, budgets } = req.body;
 
   try {
@@ -59,4 +66,6 @@ const updateBudget =async (req, res) => {
     res.status(500).json({ message: 'Error updating budget' });
   }
 };
+
 module.exports = { loginController, registerController, updateBudget };
+

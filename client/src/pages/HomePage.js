@@ -338,7 +338,7 @@ const HomePage = () => {
           form={form} 
         >
           <Form.Item label="Amount" name="amount" rules={[{ required: true, message: 'Please input the amount' }]}>
-            <Input type="number" min={0}/>
+            <Input type="number" min={0} max={1000000}/>
           </Form.Item>
           <Row gutter={16}>
             <Col span={12}>

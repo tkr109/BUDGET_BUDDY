@@ -26,5 +26,5 @@ app.use('/api/v1/transaction', require('./routes/transactionRoutes'));
 app.use('/api/v1/email', emailRoutes);
 
 app.listen(process.env.PORT, () => {
-  console.log('Server Started');
+  console.log(`Server Started on ${process.env.PORT}`);
 });

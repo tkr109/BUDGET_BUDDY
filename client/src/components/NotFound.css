@@ -1,0 +1,33 @@
+#main {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    text-align: center;
+    /* background-color: #f8f9fa; */
+  }
+  
+  .fof {
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    background: white;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  .fof h1 {
+    font-size: 3em;
+    margin-bottom: 20px;
+    color: #333;
+  }
+  
+  .fof p {
+    font-size: 1.2em;
+    color: #666;
+  }
+  
+  .giphy-embed {
+    max-width: 100%;
+    height: auto;
+  }
+  
